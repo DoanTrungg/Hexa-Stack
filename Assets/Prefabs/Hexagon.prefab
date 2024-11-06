@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4860495039918773312}
   - component: {fileID: 8366264750533760886}
   - component: {fileID: 347689857667526875}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: Hexagon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6725036691436169322}
   - component: {fileID: 1550976154704020083}
-  m_Layer: 8
+  - component: {fileID: 8402506519184102610}
+  m_Layer: 7
   m_Name: Hexagon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,6 +131,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   renderer: {fileID: 347689857667526875}
+  collider: {fileID: 8402506519184102610}
+--- !u!64 &8402506519184102610
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4525158198934541097}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: be2c74c08c5f0d14281fc39b3c7ff1b9, type: 2}
 --- !u!1 &8752090173321709467
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,13 +164,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4772049755576064204}
   - component: {fileID: 7885553965854913313}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: MeshCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4772049755576064204
 Transform:
   m_ObjectHideFlags: 0
