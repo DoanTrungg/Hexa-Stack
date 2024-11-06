@@ -52,6 +52,6 @@ public class Hexagon : MonoBehaviour
         LeanTween.scale(gameObject, Vector3.zero, .2f)
             .setEase(LeanTweenType.easeInBack)
             .setDelay(delay)
-            .setOnComplete(() => Destroy(gameObject));
+            .setOnComplete(() => Pooling.Instance().DestroyHexagon(this));
     }
 }

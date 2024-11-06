@@ -16,8 +16,11 @@ public class StackSpawner : MonoBehaviour
     [SerializeField] private Color[] listColor;
     private int stackCounter;
 
+    private Pooling _pooling;
+
     private void Awake()
     {
+        _pooling = Pooling.Instance();
         Application.targetFrameRate = 60;
         StackController.onStackPlaced += StackPlacedCallPack;
     }

@@ -11,6 +11,13 @@ public class HexgonStack : MonoBehaviour
     [NaughtyAttributes.MinMaxSlider(2, 8)]
     [SerializeField] private Vector2Int minMaxHexCount;
     [SerializeField] private Color[] listColor;
+
+    private Pooling _pooling;
+
+    private void Awake()
+    {
+        _pooling = Pooling.Instance();
+    }
     public void GenerateStack(Transform parent)
     {
         transform.SetParent(parent);
@@ -30,7 +37,18 @@ public class HexgonStack : MonoBehaviour
             Vector3 hexagonLocal = Vector3.up * i * 0.2f;
             Vector3 spawnPos = transform.TransformPoint(hexagonLocal);
 
-            Hexagon hexagonIns = Instantiate(hexagonPrefab, spawnPos, Quaternion.identity, transform);
+            Hexagon hexagonIns;
+            if (_pooling.ListHexagon.Count > 0)
+            {
+                hexagonIns = _pooling.GetHexagon();
+                hexagonIns.transform.position = spawnPos;
+                hexagonIns.transform.SetParent(transform);
+            }
+            else
+            {
+                hexagonIns = Instantiate(hexagonPrefab, spawnPos, Quaternion.identity, transform);
+            }
+            
             hexagonIns.Color = i < firstColorHexagonCount ? colorArray[0] : colorArray[1];
             hexagonIns.transform.rotation = Quaternion.Euler(hexagonIns.transform.position.x, 30, hexagonIns.transform.position.y);
 
