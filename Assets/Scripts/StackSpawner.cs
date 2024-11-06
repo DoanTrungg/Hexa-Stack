@@ -1,12 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class StackSpawner : MonoBehaviour
 {
     [SerializeField] private Transform stackPosParent;
-    [SerializeField] private GameObject hexagonPrefab;
+    [SerializeField] private Hexagon hexagonPrefab;
     [SerializeField] private GameObject hexagonStackPrefab;
+
+    [Header("Settings")]
+    [NaughtyAttributes.MinMaxSlider(2, 8)]
+    [SerializeField] private Vector2Int minMaxHexCount;
+    [SerializeField] private Color[] listColor;
 
     private void Start()
     {
@@ -23,15 +29,39 @@ public class StackSpawner : MonoBehaviour
 
     private void GenerateStack(Transform parent)
     {
-        GameObject hexStack = Instantiate(hexagonPrefab, parent.position, Quaternion.identity, parent);
+        GameObject hexStack = Instantiate(hexagonStackPrefab, parent.position, Quaternion.identity, parent);
         hexStack.name = $"Stack { parent.GetSiblingIndex() }";
 
-        int amount = Random.Range(2, 7);
+        Color stackColor = listColor[Random.Range(0, listColor.Length)];
+
+        int amount = Random.Range(minMaxHexCount.x, minMaxHexCount.y);
+
+        int firstColorHexagonCount = Random.Range(0,amount);
+
+        Color[] colorArray = GetRandomColor();
+
         for(int i = 0; i < amount; i++)
         {
             Vector3 hexagonLocal = Vector3.up * i * 0.2f;
             Vector3 spawnPos = hexStack.transform.TransformPoint(hexagonLocal);
-            GameObject hexagonIns = Instantiate(hexagonPrefab, spawnPos, Quaternion.identity, hexStack.transform);
+            Hexagon hexagonIns = Instantiate(hexagonPrefab, spawnPos, Quaternion.identity, hexStack.transform);
+
+            hexagonIns.Color = i < firstColorHexagonCount ? colorArray[0] : colorArray[1];
         }
+    }
+
+    private Color[] GetRandomColor()
+    {
+        List<Color> colors = new List<Color>();
+        colors.AddRange(listColor);
+
+        if (colors.Count <= 0) return null;
+        Color firstColor = colors.OrderBy(x => Random.value).First();
+        colors.Remove(firstColor);
+
+        if (colors.Count <= 0) return null;
+        Color secondColor = colors.OrderBy(x => Random.value).First();
+
+        return new Color[] { firstColor, secondColor };
     }
 }

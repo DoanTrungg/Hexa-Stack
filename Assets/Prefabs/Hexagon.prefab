@@ -92,6 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6725036691436169322}
+  - component: {fileID: 1550976154704020083}
   m_Layer: 8
   m_Name: Hexagon
   m_TagString: Untagged
@@ -116,6 +117,19 @@ Transform:
   - {fileID: 4772049755576064204}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 30, z: 0}
+--- !u!114 &1550976154704020083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4525158198934541097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf99e524e566b5b4d8faecdc7976070a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  renderer: {fileID: 347689857667526875}
 --- !u!1 &8752090173321709467
 GameObject:
   m_ObjectHideFlags: 0
