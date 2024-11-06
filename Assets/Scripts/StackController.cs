@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class StackController : MonoBehaviour
 
     [Header("Data")]
     private GridCell targetCell;
+
+    public static Action<GridCell> onStackPlaced;
 
 
     private void Update()
@@ -102,6 +105,8 @@ public class StackController : MonoBehaviour
         currentHexStack.Place();
 
         targetCell.AssignStack(currentHexStack);
+
+        onStackPlaced?.Invoke(targetCell);
 
         targetCell = null;
         currentHexStack = null;

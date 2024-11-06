@@ -14,6 +14,28 @@ public class StackSpawner : MonoBehaviour
     [NaughtyAttributes.MinMaxSlider(2, 8)]
     [SerializeField] private Vector2Int minMaxHexCount;
     [SerializeField] private Color[] listColor;
+    private int stackCounter;
+
+    private void Awake()
+    {
+        Application.targetFrameRate = 60;
+        StackController.onStackPlaced += StackPlacedCallPack;
+    }
+    private void OnDestroy()
+    {
+        StackController.onStackPlaced -= StackPlacedCallPack;
+    }
+
+    private void StackPlacedCallPack(GridCell gidCell)
+    {
+        stackCounter++;
+
+        if (stackCounter >= 3)
+        {
+            stackCounter = 0;
+            GenerateStack();
+        }
+    }
 
     private void Start()
     {
