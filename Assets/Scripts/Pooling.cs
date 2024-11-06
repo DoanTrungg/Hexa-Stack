@@ -6,28 +6,10 @@ using UnityEngine;
 public class Pooling : Singleton<Pooling>
 {
     public Transform hexagonPool;
-    public Transform stackPool;
 
     private List<Hexagon> listHexagon = new List<Hexagon>();
-    private List<HexgonStack> listStak = new List<HexgonStack>();
 
     public List<Hexagon> ListHexagon { get => listHexagon; set => listHexagon = value; }
-    public List<HexgonStack> ListStak { get => listStak; set => listStak = value; }
-
-    //public void DestroyStack(HexgonStack stack)
-    //{
-    //    ListStak.Add(stack);
-    //    stack.transform.SetParent(stackPool);
-    //    stack.transform.localPosition = Vector3.zero;
-    //    stack.gameObject.SetActive(false);
-    //}
-    //public HexgonStack GetHexgonStack()
-    //{
-    //    var newStack = ListStak[0];
-    //    newStack.gameObject.SetActive(true);
-    //    ListStak.RemoveAt(0);
-    //    return newStack;
-    //}
 
     public void DestroyHexagon(Hexagon hexagon)
     {
