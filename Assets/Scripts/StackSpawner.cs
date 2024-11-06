@@ -74,7 +74,7 @@ public class StackSpawner : MonoBehaviour
 
             hexagonIns.Configure(hexStack);
 
-            hexStack.hexagons.Add(hexagonIns);
+            hexStack.AddHexa(hexagonIns);
         }
     }
 

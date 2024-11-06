@@ -7,12 +7,14 @@ public class GridCell : MonoBehaviour
     private HexgonStack stack;
     public bool IsOccupied
     {
-        get => stack != null;
+        get => Stack != null;
         private set { }
     }
 
+    public HexgonStack Stack { get => stack; set => stack = value; }
+
     public void AssignStack(HexgonStack stack)
     {
-        this.stack = stack;
+        this.Stack = stack;
     }
 }
