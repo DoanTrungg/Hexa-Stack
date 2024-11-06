@@ -102,11 +102,11 @@ public class StackController : MonoBehaviour
 
         currentHexStack.transform.position = targetCell.transform.position.With(y: .2f);
         currentHexStack.transform.SetParent(targetCell.transform);
-        currentHexStack.Place();
+        currentHexStack.Place(); //disable
 
-        targetCell.AssignStack(currentHexStack);
+        targetCell.AssignStack(currentHexStack); // dont click
 
-        onStackPlaced?.Invoke(targetCell);
+        onStackPlaced?.Invoke(targetCell); // spawn vs anim
 
         targetCell = null;
         currentHexStack = null;

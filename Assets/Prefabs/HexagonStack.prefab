@@ -45,3 +45,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hexagons: []
+  hexagonPrefab: {fileID: 1550976154704020083, guid: 8aa9a5470df9b8f43bacc17815c864c1, type: 3}
+  minMaxHexCount: {x: 4, y: 8}
+  listColor:
+  - {r: 0.052972537, g: 0.06605798, b: 0.8773585, a: 1}
+  - {r: 0.2587071, g: 0.94509804, b: 0.16470587, a: 1}
+  - {r: 0.7924528, g: 0.08522601, b: 0.08522601, a: 1}

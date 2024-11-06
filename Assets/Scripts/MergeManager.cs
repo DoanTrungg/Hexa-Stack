@@ -10,10 +10,12 @@ public class MergeManager : MonoBehaviour
     private void Awake()
     {
         StackController.onStackPlaced += StackPlacedCallBack;
+        GridGenerator.onStackGenerate += StackPlacedCallBack;
     }
     private void OnDestroy()
     {
         StackController.onStackPlaced -= StackPlacedCallBack;
+        GridGenerator.onStackGenerate -= StackPlacedCallBack;
     }
     private void StackPlacedCallBack(GridCell gridCell)
     {
